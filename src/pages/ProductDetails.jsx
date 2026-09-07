@@ -112,8 +112,10 @@ export default function ProductDetails() {
 
           <div className="pdp__info">
             <div>
-              <span className="pdp__brand">{product.brand}</span>
-              <h2 className="pdp__name">{product.name}</h2>
+              <h2 className="pdp__name">
+                {product.name}{" "}
+                <span className="pdp__brand-inline">by {product.brand}</span>
+              </h2>
               <div className="pdp__rating">
                 <span className="pdp__rating-badge">
                   {product.rating.toFixed(1)}

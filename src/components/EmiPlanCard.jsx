@@ -23,7 +23,7 @@ export default function EmiPlanCard({ plan, selected, onSelect }) {
           </span>
         </span>
         <span className="emi-card__meta">
-          {plan.months} months &middot; total {formatINR(plan.totalPayable)}
+          Pay over {plan.months} months, {formatINR(plan.totalPayable)} in total
         </span>
       </span>
       {plan.isNoCost && <span className="emi-card__badge">No-cost EMI</span>}

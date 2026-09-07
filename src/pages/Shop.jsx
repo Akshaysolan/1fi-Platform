@@ -65,10 +65,12 @@ export default function Shop() {
       <Header title="Shop" showBack={false} />
       <main className="page">
         <div className="shop-hero">
-          <p className="shop-hero__kicker">1Fi &middot; Shop</p>
           <h2 className="shop-hero__title">
-            Everyday buys, on your terms.
+            What are you shopping for today?
           </h2>
+          <p className="shop-hero__desc">
+            Browse products, compare EMI plans, or find a store near you.
+          </p>
         </div>
 
         <div className="shop-options">

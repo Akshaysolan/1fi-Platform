@@ -21,10 +21,10 @@ export default function TopBrands() {
               />
             </svg>
           </div>
-          <p className="placeholder__title">Coming soon</p>
+          <p className="placeholder__title">Nothing here yet</p>
           <p className="placeholder__desc">
-            Top Brands isn't part of this build. Head back to Shop to try 1Fi
-            Marketplace instead.
+            This section is out of scope for now. If you're looking to buy
+            something, 1Fi Marketplace is where the action is.
           </p>
         </div>
       </main>
