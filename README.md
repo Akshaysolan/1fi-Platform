@@ -173,8 +173,16 @@ touching component code.
 
 ## Screenshots
 
-Not included in this repository — run the app locally or in Docker to
-view the Shop, Marketplace, and Product Details screens.
+<img width="706" height="399" alt="image" src="https://github.com/user-attachments/assets/ba27c886-672a-4a62-95c5-433d48a8a0a3" />
+
+<img width="728" height="404" alt="image" src="https://github.com/user-attachments/assets/d944414c-d29b-446b-94e8-b6638561ff69" />
+
+<img width="766" height="423" alt="image" src="https://github.com/user-attachments/assets/3b58946e-75d3-45e7-886e-0dd52fe56b87" />
+
+<img width="669" height="387" alt="image" src="https://github.com/user-attachments/assets/e8d63622-9f3b-4bf6-9146-937a94f18034" />
+
+<img width="629" height="290" alt="image" src="https://github.com/user-attachments/assets/10e31fd8-0927-4d6b-9b20-16a97d40dad9" />
+
 
 ## Future improvements
 
