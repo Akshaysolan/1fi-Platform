@@ -1,10 +1,10 @@
-import Header from "../components/Header";
+import Breadcrumb from "../components/Breadcrumb";
 
 /** Intentionally blank per the assignment — "No implementation required." */
 export default function NearbyStores() {
   return (
     <>
-      <Header title="Nearby Stores" eyebrow="Shop" />
+      <Breadcrumb trail={[{ label: "Shop", path: "/shop" }]} current="Nearby Stores" />
       <main className="page">
         <div className="placeholder">
           <div className="placeholder__icon">

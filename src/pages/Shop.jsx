@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Header from "../components/Header";
+import Breadcrumb from "../components/Breadcrumb";
 
 const OPTIONS = [
   {
@@ -62,14 +62,20 @@ export default function Shop() {
 
   return (
     <>
-      <Header title="Shop" showBack={false} />
+      <Breadcrumb trail={[]} current="Shop" />
       <main className="page">
         <div className="shop-hero">
-          <h2 className="shop-hero__title">
-            What are you shopping for today?
-          </h2>
+          <span className="shop-hero__badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l2.9 6.5L22 9.3l-5 4.9 1.2 7.1L12 17.8l-6.2 3.5L7 14.2 2 9.3l7.1-.8z" />
+            </svg>
+            New in Shop
+          </span>
+          <h1 className="shop-hero__title">
+            Browse today, <span className="gradient-text">pay in EMIs</span>
+          </h1>
           <p className="shop-hero__desc">
-            Browse products, compare EMI plans, or find a store near you.
+            No credit score required. No interest, if you pay on schedule.
           </p>
         </div>
 
@@ -91,7 +97,7 @@ export default function Shop() {
               <span className="shop-option__arrow">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                   <path
-                    d="M9 6l6 6-6 6"
+                    d="M7 17L17 7M17 7H8M17 7V16"
                     stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"

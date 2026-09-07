@@ -87,7 +87,8 @@ function cheapestVariantPrice(product) {
 
 function toProductSummary(product) {
   const price = cheapestVariantPrice(product);
-  const cheapestEmi = computeEmiPlans(price)[0];
+  const plans = computeEmiPlans(price);
+  const lowestMonthly = plans.reduce((min, p) => Math.min(min, p.monthlyAmount), Infinity);
   return {
     id: product.id,
     name: product.name,
@@ -96,7 +97,7 @@ function toProductSummary(product) {
     image: product.images[0],
     price,
     mrp: product.mrp,
-    fromEmi: cheapestEmi.monthlyAmount
+    fromEmi: lowestMonthly
   };
 }
 

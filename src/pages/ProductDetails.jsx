@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
-import Header from "../components/Header";
+import Breadcrumb from "../components/Breadcrumb";
 import Loading from "../components/Loading";
 import ErrorState from "../components/ErrorState";
 import VariantSelector from "../components/VariantSelector";
@@ -11,6 +11,11 @@ import { getProductById, computeEmiPlans } from "../api/productApi";
 function formatINR(amount) {
   return `\u20b9${amount.toLocaleString("en-IN")}`;
 }
+
+const CRUMBS = [
+  { label: "Shop", path: "/shop" },
+  { label: "1Fi Marketplace", path: "/marketplace" }
+];
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -64,7 +69,7 @@ export default function ProductDetails() {
   if (status === "loading") {
     return (
       <>
-        <Header title="Product" eyebrow="1Fi Marketplace" />
+        <Breadcrumb trail={CRUMBS} current="Product" />
         <main className="page">
           <Loading variant="inline" />
         </main>
@@ -75,7 +80,7 @@ export default function ProductDetails() {
   if (status === "error") {
     return (
       <>
-        <Header title="Product" eyebrow="1Fi Marketplace" />
+        <Breadcrumb trail={CRUMBS} current="Product" />
         <main className="page">
           <ErrorState
             title="Couldn't load this product"
@@ -89,7 +94,7 @@ export default function ProductDetails() {
 
   return (
     <>
-      <Header title={product.name} eyebrow="1Fi Marketplace" />
+      <Breadcrumb trail={CRUMBS} current={product.name} />
       <main className="page">
         <div className="pdp">
           <div className="pdp__gallery">
@@ -125,15 +130,29 @@ export default function ProductDetails() {
                 </span>
                 <span>{product.ratingCount.toLocaleString("en-IN")} ratings</span>
               </div>
-              <div className="pdp__price-block">
-                <span className="pdp__price">{formatINR(selectedVariant.price)}</span>
-                {product.mrp > selectedVariant.price && (
-                  <>
+
+              <div className="pdp__price-card">
+                <span className="pdp__price-label">Price</span>
+                <div className="pdp__price-block">
+                  <span className="pdp__price">{formatINR(selectedVariant.price)}</span>
+                  {product.mrp > selectedVariant.price && (
                     <span className="pdp__mrp">{formatINR(product.mrp)}</span>
-                    <span className="pdp__discount">
-                      {Math.round((1 - selectedVariant.price / product.mrp) * 100)}% off
-                    </span>
-                  </>
+                  )}
+                </div>
+                {product.mrp > selectedVariant.price && (
+                  <span className="pdp__discount">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M7 17l4-6 3 3 5-8"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    You save {formatINR(product.mrp - selectedVariant.price)} (
+                    {Math.round((1 - selectedVariant.price / product.mrp) * 100)}% off)
+                  </span>
                 )}
               </div>
             </div>
@@ -194,23 +213,34 @@ export default function ProductDetails() {
       </main>
 
       <div className="proceed-bar">
-        <div className="proceed-bar__info">
-          <span className="proceed-bar__label">
-            {selectedPlan ? `${selectedPlan.months}-month plan` : "Select a plan"}
-          </span>
-          <span className="proceed-bar__value">
-            {selectedPlan
-              ? `${formatINR(selectedPlan.monthlyAmount)}/mo`
-              : formatINR(selectedVariant.price)}
-          </span>
+        <div className="proceed-bar__inner">
+          <div className="proceed-bar__info">
+            <span className="proceed-bar__label">
+              {selectedPlan ? `${selectedPlan.months}-month plan` : "Select a plan"}
+            </span>
+            <span className="proceed-bar__value">
+              {selectedPlan
+                ? `${formatINR(selectedPlan.monthlyAmount)}/mo`
+                : formatINR(selectedVariant.price)}
+            </span>
+          </div>
+          <button
+            className="btn btn--primary proceed-bar__cta"
+            disabled={!canProceed}
+            onClick={() => setShowConfirmation(true)}
+          >
+            Proceed
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="btn__arrow">
+              <path
+                d="M7 17L17 7M17 7H8M17 7V16"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
         </div>
-        <button
-          className="btn btn--primary proceed-bar__cta"
-          disabled={!canProceed}
-          onClick={() => setShowConfirmation(true)}
-        >
-          Proceed
-        </button>
       </div>
 
       {showConfirmation && selectedPlan && (

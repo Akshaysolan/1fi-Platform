@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+import Breadcrumb from "../components/Breadcrumb";
 
 /**
  * Intentionally blank per the assignment — "No implementation required."
@@ -8,7 +8,7 @@ import Header from "../components/Header";
 export default function TopBrands() {
   return (
     <>
-      <Header title="Top Brands" eyebrow="Shop" />
+      <Breadcrumb trail={[{ label: "Shop", path: "/shop" }]} current="Top Brands" />
       <main className="page">
         <div className="placeholder">
           <div className="placeholder__icon">

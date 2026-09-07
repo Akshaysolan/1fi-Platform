@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
-import Header from "../components/Header";
+import Breadcrumb from "../components/Breadcrumb";
 import ProductCard from "../components/ProductCard";
 import Loading from "../components/Loading";
 import ErrorState from "../components/ErrorState";
@@ -42,7 +42,7 @@ export default function Marketplace() {
 
   return (
     <>
-      <Header title="1Fi Marketplace" eyebrow="Shop" />
+      <Breadcrumb trail={[{ label: "Shop", path: "/shop" }]} current="1Fi Marketplace" />
       <main className="page">
         {categories.length > 0 && (
           <div className="filters" role="tablist" aria-label="Filter by category">

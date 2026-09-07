@@ -26,7 +26,20 @@ export default function EmiPlanCard({ plan, selected, onSelect }) {
           Pay over {plan.months} months, {formatINR(plan.totalPayable)} in total
         </span>
       </span>
-      {plan.isNoCost && <span className="emi-card__badge">No-cost EMI</span>}
+      {plan.isNoCost && (
+        <span className="emi-card__badge">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M5 13l4 4L19 7"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          No-cost EMI
+        </span>
+      )}
     </button>
   );
 }

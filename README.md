@@ -30,6 +30,19 @@ intentionally blank, as specified in the assignment.
   desktop; product details stacks on mobile and goes two-column on
   larger screens.
 
+## Design reference
+
+Styling (colors, buttons, type, section labels) is matched to
+screenshots of the real 1Fi web app: violet brand color, pill-shaped
+buttons with a diagonal arrow icon, a gradient accent word in headlines,
+uppercase tracked section labels (the real app uses these throughout its
+calculator — "PURCHASE DETAILS", "FINANCIAL SUMMARY"), black-active
+toggle pills (matches the real EMI tenure selector), and green used for
+savings/positive financial information. The top navigation bar mirrors
+the real site's header (logo, nav links, "Shop Now" CTA); only Home and
+Shop are wired up since the assignment scopes this build to the
+Marketplace inside Shop.
+
 ## Tech stack
 
 - **React 18** + **Vite** — fast dev server, small production build.
@@ -50,7 +63,8 @@ intentionally blank, as specified in the assignment.
 │   ├── data/
 │   │   └── products.js          # Mock data source (never imported by UI directly)
 │   ├── components/
-│   │   ├── Header.jsx
+│   │   ├── TopNav.jsx
+│   │   ├── Breadcrumb.jsx
 │   │   ├── ProductCard.jsx
 │   │   ├── EmiPlanCard.jsx
 │   │   ├── VariantSelector.jsx

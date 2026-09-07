@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import TopNav from "./components/TopNav";
 import Shop from "./pages/Shop";
 import TopBrands from "./pages/TopBrands";
 import NearbyStores from "./pages/NearbyStores";
@@ -8,6 +9,7 @@ import ProductDetails from "./pages/ProductDetails";
 export default function App() {
   return (
     <div className="app-shell">
+      <TopNav />
       <Routes>
         <Route path="/" element={<Navigate to="/shop" replace />} />
         <Route path="/shop" element={<Shop />} />
