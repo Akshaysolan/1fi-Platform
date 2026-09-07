@@ -173,6 +173,7 @@ touching component code.
 
 ## Screenshots
 
+<<<<<<< HEAD
 <img width="706" height="399" alt="image" src="https://github.com/user-attachments/assets/ba27c886-672a-4a62-95c5-433d48a8a0a3" />
 
 <img width="728" height="404" alt="image" src="https://github.com/user-attachments/assets/d944414c-d29b-446b-94e8-b6638561ff69" />
@@ -183,6 +184,32 @@ touching component code.
 
 <img width="629" height="290" alt="image" src="https://github.com/user-attachments/assets/10e31fd8-0927-4d6b-9b20-16a97d40dad9" />
 
+=======
+Not included in this repository yet — add your own before submitting.
+A `screenshots/` folder is already in the project for this. To generate
+them:
+
+```bash
+npm run dev        # or docker compose up --build
+```
+
+Then open the app and capture:
+
+- `screenshots/shop.png` — the Shop hub with all three options
+- `screenshots/marketplace.png` — the product listing grid
+- `screenshots/product-details.png` — a product page with a variant and
+  EMI plan selected
+- `screenshots/mobile.png` — any of the above at a narrow viewport width,
+  to show the responsive layout
+
+Once added, reference them here, for example:
+
+```markdown
+![Shop hub](screenshots/shop.png)
+![Marketplace listing](screenshots/marketplace.png)
+![Product details](screenshots/product-details.png)
+```
+>>>>>>> 8e42f0f (Update project)
 
 ## Future improvements
 
